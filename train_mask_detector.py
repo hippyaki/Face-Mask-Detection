@@ -61,7 +61,7 @@ labels = np.array(labels)
 # construct the training image generator for data augmentation
 aug = ImageDataGenerator(
 	rotation_range=20,
-	zoom_range=0.15,
+	zoom_range=0.14,
 	width_shift_range=0.2,
 	height_shift_range=0.2,
 	shear_range=0.15,
@@ -98,7 +98,7 @@ model.compile(loss="binary_crossentropy", optimizer=opt,
 	metrics=["accuracy"])
 
 # train the head of the network
-print("[INFO] training head...")
+print("[INFO] training head....")
 H = model.fit(
 	aug.flow(trainX, trainY, batch_size=BS),
 	steps_per_epoch=len(trainX) // BS,
